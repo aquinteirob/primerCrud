@@ -57,9 +57,84 @@ public class crud {
 				region[contador] = nuevaRegion;
 				uva[contador] = nuevaUva;
 				System.out.println(Arrays.toString(nombre));
+				
 			} else if (menu == 2) {
-				System.out.println("al fiiiiin");
-				System.out.println(Arrays.toString(nombre));
+				buscarVariable = basicos.buscador();
+				switch (buscarVariable) {
+				case 1:
+					System.out.println(Arrays.toString(nombre));
+					productoBuscar = basicos.caracteres("Introduzca el nombre del vino que quiere modificar: ");
+					nuevoVino = basicos.caracteres("nombre del vino nuevo: ");
+					nuevoColor = basicos.caracteres("nuevo color: ");
+					nuevaRegion = basicos.caracteres("nueva region: ");
+					nuevaUva = basicos.caracteres("nueva uva principal: ");
+					do {
+						if (nombre[contador2].equals(productoBuscar)) {
+							nombre[contador2]=nuevoVino;
+							color[contador2]=nuevoColor;
+							region[contador2]=nuevaRegion;
+							uva[contador2]=nuevaRegion;
+							System.out.println("nombre del vino nuevo: " + nombre[contador2] + " color nuevo: " + color[contador2]
+									+ " region nueva: " + region[contador2] + " uva nueva: " + uva[contador2]);
+							encontrado = true;
+						}
+						contador2++;
+					} while (contador2 < nombre.length && !encontrado);
+					break;
+					
+				case 2:
+					System.out.println("Introduzca el color del vino que quiere modificar: ");
+					productoBuscar = basicos.caracteres(Arrays.toString(color));
+					for (int i = 0; i < color.length; i++) {
+						if ((color[contador].equals(productoBuscar)) && (color[contador] != null)) {
+							System.out.println("nombre: " + nombre[i] + " color: " + color[i] + " region: " + region[i]
+									+ " uva: " + uva[i]);
+						}
+					}
+					break;
+					
+				case 3:
+					System.out.println("Introduzca la region que quiere modificar: ");
+					productoBuscar = basicos.caracteres(Arrays.toString(region));
+					nuevaRegion = basicos.caracteres("nueva region: ");
+					nuevoVino = basicos.caracteres("nombre del nuevo vino: ");
+					nuevoColor = basicos.caracteres("color nuevo: ");
+					nuevaUva = basicos.caracteres("nueva uva principal: ");
+					do {
+						if (region[contador2].equals(productoBuscar)) {
+							encontrado = true;
+							nombre[contador2]=nuevoVino;
+							color[contador2]=nuevoColor;
+							region[contador2]=nuevaRegion;
+							uva[contador2]=nuevaUva;
+							System.out.println("nombre del vino nuevo: " + nombre[contador2] + " color: " + color[contador2]
+									+ " region: " + region[contador2] + " uva: " + uva[contador2]);
+						}
+						contador2++;
+					} while (contador2 < region.length && !encontrado);
+					break;
+				default:
+					System.out.println("Introduzca la uva que quiere modificar: ");
+					productoBuscar = basicos.caracteres(Arrays.toString(uva));
+					nuevaUva = basicos.caracteres("uva principal nueva: ");
+					nuevoVino = basicos.caracteres("nombre del nuevo vino: ");
+					nuevoColor = basicos.caracteres("color nuevo: ");
+					nuevaRegion = basicos.caracteres("region nueva: ");
+					do {
+						if (uva[contador2].equals(productoBuscar)) {
+							encontrado = true;
+							nombre[contador2]=nuevoVino;
+							color[contador2]=nuevoColor;
+							region[contador2]=nuevaRegion;
+							uva[contador2]=nuevaUva;
+							System.out.println("nombre del vino nuevo: " + nombre[contador2] + " color: " + color[contador2]
+									+ " region: " + region[contador2] + " uva: " + uva[contador2]);
+						}
+						contador2++;
+					} while (contador2 < region.length && !encontrado);
+					break;
+				}
+				
 			} else if (menu == 3) {
 
 			} else if (menu == 4) {
@@ -118,9 +193,5 @@ public class crud {
 				System.out.println("Gracias, que tenga un buen dia.");
 			}
 		}
-	}
-	
-	public static void buscador() {
-		
 	}
 }
