@@ -34,10 +34,18 @@ public class basicos {
 	public static int buscador() {
 		int numeroArreglo;
 		do {
-			numeroArreglo=numericos("Por favor introduzca el numero por el que quiere buscar: "
+			numeroArreglo=numericos("Por favor introduzca el numero de la caracteristica por la que quiere buscar: "
 				+"\n"+"1. nombre"+"\n"+"2. color"+"\n"+"3. region"+"\n"+"4. uva");
 		}while(numeroArreglo<1||numeroArreglo>5);
 		return numeroArreglo;
 	}
 	
+public static void buscadorPosicion() {
+	String vino;
+	String color;
+	String region;
+	String uva;
+	int buscarVariable;
+	
+	}
 }
