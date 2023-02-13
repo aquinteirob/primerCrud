@@ -10,33 +10,53 @@ public class basicos {
 		numero = lector.nextInt();
 		lector.nextLine();
 		return numero;
+
 	}
 
 	public static String caracteres(String texto) {
-		String caracter;
+		String caracter = " ";
 		Scanner lector = new Scanner(System.in);
-		System.out.println(texto);
-		caracter = lector.nextLine();
+		try {
+			System.out.println(texto);
+			caracter = lector.nextLine();
+			return caracter;
+		} catch (java.lang.NullPointerException e) {
+			System.out.println("error");
+		}
 		return caracter;
 	}
 
 	public static int menuCrud() {
-		int numero;
+
+		int numero = 0;
 		Scanner lector = new Scanner(System.in);
-		System.out.println("Introduzca el numero segun la gestion que quiere realizar:" + "\n" + "1. Introducir vino"
-				+ "\n" + "2. Modificar algun vino" + "\n" + "3. Eliminar algun vino" + "\n" + "4. Buscar vino" + "\n"
-				+ "5. Salir");
-		numero = lector.nextInt();
-		lector.nextLine();
+		try {
+			do {
+				System.out.println("Introduzca el numero segun la gestion que quiere realizar:" + "\n"
+						+ "1. Introducir vino" + "\n" + "2. Modificar algun vino" + "\n" + "3. Eliminar algun vino"
+						+ "\n" + "4. Buscar vino" + "\n" + "5. Salir");
+				numero = lector.nextInt();
+				lector.nextLine();
+				return numero;
+			} while (numero < 1 && numero > 5);
+		} catch (java.util.InputMismatchException e) {
+			System.out.println("Caracter no valido");
+		}
 		return numero;
 	}
 
 	public static int menuBusqueda() {
-		int numeroArreglo;
-		do {
-			numeroArreglo = numericos("Por favor introduzca el numero de la caracteristica por la que quiere buscar: "
-					+ "\n" + "1. nombre" + "\n" + "2. color" + "\n" + "3. region" + "\n" + "4. uva");
-		} while (numeroArreglo < 1 || numeroArreglo > 5);
+		int numeroArreglo = 0;
+		try {
+			do {
+				numeroArreglo = numericos(
+						"Por favor introduzca el numero de la caracteristica por la que quiere buscar: " + "\n"
+								+ "1. nombre" + "\n" + "2. color" + "\n" + "3. region" + "\n" + "4. uva");
+			} while (numeroArreglo < 1 || numeroArreglo > 5);
+			return numeroArreglo;
+		} catch (java.util.InputMismatchException e) {
+			System.out.println("Caracter no valido");
+		}
 		return numeroArreglo;
 	}
 
@@ -151,7 +171,7 @@ public class basicos {
 			String eliminar, int casoModificador) {
 		String buscarValor;
 		String confirmacion;
-		String resultado=" ";
+		String resultado = " ";
 		int contador = 0;
 		int longitud = arregloEliminar.length;
 		boolean encontrado = false;
