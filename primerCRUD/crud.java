@@ -189,7 +189,7 @@ public class crud {
 					resultado = basicos.buscador(uva, nombre, color, region, productoBuscar, buscarVariable);
 					break;
 				}
-			} else {
+			} else if(menu==5){
 				System.out.println("Gracias, que tenga un buen dia.");
 			}
 		}
