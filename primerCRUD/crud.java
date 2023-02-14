@@ -22,7 +22,6 @@ public class crud {
 		int contador = 0;
 		int menu;
 		String productoBuscar;
-		int cantidadImpresa = 0;
 		int longitudNombre = nombre.length;
 		int longitudColor = color.length;
 		String confirmar = "";
@@ -50,8 +49,6 @@ public class crud {
 		} else {
 			System.out.println("Gracias, que tenga un buen dia.");
 		}
-		// evalua si me guarda el valor en la posición correcta del string
-		System.out.print(Arrays.toString(nombre));
 
 		while (menu != 5) {
 			menu = basicos.menuCrud();
@@ -69,47 +66,51 @@ public class crud {
 					color[contador] = nuevoColor;
 					region[contador] = nuevaRegion;
 					uva[contador] = nuevaUva;
-					System.out.println(Arrays.toString(nombre));
 				}
 			} else if (menu == 2) {
 				buscarVariable = basicos.menuBusqueda();
 				switch (buscarVariable) {
 				case 1:
 					System.out.println(Arrays.toString(nombre));
-					productoBuscar = basicos.caracteres("Introduzca el nombre del vino que quiere modificar: ");
+					productoBuscar = basicos.caracteres(
+							"Introduzca el nombre del vino que quiere modificar y las demas caracteristicas: ");
 					resultado = basicos.modificador(nombre, color, region, uva, productoBuscar, buscarVariable);
 					break;
 
 				case 2:
-					System.out.println("Introduzca el color del vino que quiere modificar: ");
+					System.out
+							.println("Introduzca el color del vino que quiere modificar y las demas caracteristicas: ");
 					productoBuscar = basicos.caracteres(Arrays.toString(color));
-					for (int i = 0; i < color.length; i++) {
-						if ((color[i].equals(productoBuscar)) && (color[i] != null)) {
-							System.out.println("nombre del vino: " + nombre[i] + " color: " + color[i] + " region: "
-									+ region[i] + " uva: " + uva[i]);
-							confirmar = basicos.caracteres("¿Es este el vino que quiere modificar? (s/n):");
-							if (confirmar.equals("s")) {
-								nuevoVino = basicos.caracteres("nombre vino nuevo");
-								nuevoColor = basicos.caracteres("color");
-								nuevaRegion = basicos.caracteres("region");
-								nuevaUva = basicos.caracteres("uva principal");
-								nombre[i] = nuevoVino;
-								color[i] = nuevoColor;
-								region[i] = nuevaRegion;
-								uva[i] = nuevaUva;
+					try {
+						for (int i = 0; i < longitudColor; i++) {
+							if ((color[i].equals(productoBuscar)) && (color[i] != null)) {
+								System.out.println("nombre del vino: " + nombre[i] + " color: " + color[i] + " region: "
+										+ region[i] + " uva: " + uva[i]);
+								confirmar = basicos.caracteres("¿Es este el vino que quiere modificar? (s/n):");
+								if (confirmar.equals("s")) {
+									nuevoVino = basicos.caracteres("nombre vino nuevo");
+									nuevoColor = basicos.caracteres("color nuevo");
+									nuevaRegion = basicos.caracteres("region nueva");
+									nuevaUva = basicos.caracteres("uva principal nueva");
+									nombre[i] = nuevoVino;
+									color[i] = nuevoColor;
+									region[i] = nuevaRegion;
+									uva[i] = nuevaUva;
+								}
 							}
-							cantidadImpresa++;
 						}
+					} catch (java.lang.NullPointerException e) {
+						System.out.println("Introduzca mas valores primero por favor");
 					}
 					break;
 
 				case 3:
-					System.out.println("Introduzca la region que quiere modificar: ");
+					System.out.println("Introduzca la region que quiere modificar y las demas caracteristicas: ");
 					productoBuscar = basicos.caracteres(Arrays.toString(region));
 					resultado = basicos.modificador(region, color, nombre, uva, productoBuscar, buscarVariable);
 					break;
 				default:
-					System.out.println("Introduzca la uva que quiere modificar: ");
+					System.out.println("Introduzca la uva que quiere modificar y las demas caracteristicas: ");
 					productoBuscar = basicos.caracteres(Arrays.toString(uva));
 					resultado = basicos.modificador(nombre, color, region, uva, productoBuscar, buscarVariable);
 					break;
@@ -120,38 +121,44 @@ public class crud {
 				switch (buscarVariable) {
 				case 1:
 					System.out.println(Arrays.toString(nombre));
-					productoBuscar = basicos.caracteres("Introduzca el nombre del vino que quiere eliminar: ");
+					productoBuscar = basicos.caracteres(
+							"Introduzca el nombre del vino que quiere eliminar, se eliminan las demas caracteristicas tambien : ");
 					resultado = basicos.eliminador(nombre, color, region, uva, productoBuscar, buscarVariable);
-					System.out.println(resultado);
 					break;
 
 				case 2:
-					System.out.println("Introduzca el color del vino que quiere eliminar: ");
+					System.out.println(
+							"Introduzca el color del vino que quiere eliminar, se eliminan las demas caracteristicas tambien: ");
 					productoBuscar = basicos.caracteres(Arrays.toString(color));
-					for (int i = 0; i < color.length; i++) {
-						if ((color[i].equals(productoBuscar)) && (color[i] != null)) {
-							System.out.println("nombre del vino: " + nombre[i] + " color: " + color[i] + " region: "
-									+ region[i] + " uva: " + uva[i]);
-							cantidadImpresa++;
-							confirmar = basicos.caracteres("¿Es este el vino que quiere eliminar? (s/n):");
-							if (confirmar.equals("s")) {
-								nombre[i] = null;
-								color[i] = null;
-								region[i] = null;
-								uva[i] = null;
-								System.out.println("Eliminado correctamente.");
+					try {
+						for (int i = 0; i < longitudColor; i++) {
+							if ((color[i].equals(productoBuscar)) && (color[i] != null)) {
+								System.out.println("nombre del vino: " + nombre[i] + " color: " + color[i] + " region: "
+										+ region[i] + " uva: " + uva[i]);
+								confirmar = basicos.caracteres("¿Es este el vino que quiere eliminar? (s/n):");
+								if (confirmar.equals("s")) {
+									nombre[i] = " ";
+									color[i] = " ";
+									region[i] = " ";
+									uva[i] = " ";
+									System.out.println("Eliminado correctamente.");
+								}
 							}
 						}
+					} catch (java.lang.NullPointerException e) {
+						System.out.println("Introduzca mas valores primero por favor");
 					}
 					break;
 
 				case 3:
-					System.out.println("Introduzca la region que quiere eliminar: ");
+					System.out.println(
+							"Introduzca la region que quiere eliminar, se eliminan las demas caracteristicas tambien: ");
 					productoBuscar = basicos.caracteres(Arrays.toString(region));
 					resultado = basicos.eliminador(region, color, nombre, uva, productoBuscar, buscarVariable);
 					break;
 				default:
-					System.out.println("Introduzca la uva que quiere eliminar: ");
+					System.out.println(
+							"Introduzca la uva que quiere eliminar, se eliminan las demas caracteristicas tambien: ");
 					productoBuscar = basicos.caracteres(Arrays.toString(uva));
 					resultado = basicos.eliminador(nombre, color, region, uva, productoBuscar, buscarVariable);
 					break;
@@ -189,7 +196,7 @@ public class crud {
 					resultado = basicos.buscador(uva, nombre, color, region, productoBuscar, buscarVariable);
 					break;
 				}
-			} else if(menu==5){
+			} else if (menu == 5) {
 				System.out.println("Gracias, que tenga un buen dia.");
 			}
 		}

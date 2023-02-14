@@ -66,6 +66,7 @@ public class basicos {
 		int contador = 0;
 		int longitud = arregloComparo.length;
 		boolean encontrado = false;
+		try {
 		if (casoModificador == 1) {
 			do {
 				if (arregloComparo[contador].equals(producto)) {
@@ -96,6 +97,9 @@ public class basicos {
 				}
 				contador++;
 			} while (contador < longitud && !encontrado);
+		}
+		}catch(java.lang.NullPointerException e) {
+			System.out.println("Introduzca mas valores primero por favor");
 		}
 		return resultado;
 	}
@@ -181,10 +185,10 @@ public class basicos {
 			if ((casoModificador == 1) || (casoModificador == 3) || (casoModificador == 4)) {
 				do {
 					if (arregloEliminar[contador].equals(eliminar)) {
-						arregloEliminar[contador] = null;
-						arreglo1[contador] = null;
-						arreglo2[contador] = null;
-						arreglo3[contador] = null;
+						arregloEliminar[contador] = " ";
+						arreglo1[contador] = " ";
+						arreglo2[contador] = " ";
+						arreglo3[contador] = " ";
 						System.out.println("se ha eliminado de manera correcta");
 						encontrado = true;
 						resultado = eliminar;
