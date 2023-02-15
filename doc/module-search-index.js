@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"primerCRUD"}];updateSearchResults();
