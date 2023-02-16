@@ -3,20 +3,19 @@ package primerCRUD;
 import java.util.Scanner;
 
 public class basicos {
-	
+
 	/**
 	 * La clase basicos proporciona métodos generales para la elaboración del CRUD
-	 * 	Interacción y mensajes por consola de tipo entero y de tipo caracteres. 
-	 * 	Menu para escoger las gestiones que se quieren realizar sobre los arrays
-	 * 	Menu para indicar por cual parámetro se quiere realizar la gestión seleccionada
-	 * 	Un método para buscar el valor que se introduzca. 
-	 * 	Un método modificador para cambiar el valor introducido por uno nuevo. 
-	 * 	Un método eliminador 
+	 * Interacción y mensajes por consola de tipo entero y de tipo caracteres. Menu
+	 * para escoger las gestiones que se quieren realizar sobre los arrays Menu para
+	 * indicar por cual parámetro se quiere realizar la gestión seleccionada Un
+	 * método para buscar el valor que se introduzca. Un método modificador para
+	 * cambiar el valor introducido por uno nuevo. Un método eliminador
+	 * 
 	 * @author Quinteiro_Adhemar
-	 * @version 1, 15/02/23
+	 * @version 1, 10/02/23
 	 */
-	
-	
+
 	public static int numericos(String texto) {
 		int numero;
 		Scanner lector = new Scanner(System.in);
@@ -26,14 +25,17 @@ public class basicos {
 		return numero;
 
 	}
+
 	/**
-	 * El método caracteres proporciona interacciones por consola
-	 * Captura el valor ingresado por el usuario después de un texto que recibe como parámetro
+	 * El método caracteres proporciona interacciones por consola Captura el valor
+	 * ingresado por el usuario después de un texto que recibe como parámetro
+	 * 
 	 * @author Quinteiro_Adhemar
-	 * @version 1, 15/02/2023
+	 * @version 1, 10/02/2023
 	 * @param texto: mensaje que se muestra por consola
-	 * @exception NullPointerException: cuando se introduce un caracter null 
-	 * @return caracter: el o los caracteres capturados por el lector y son regresados para su futura utilización
+	 * @exception NullPointerException: cuando se introduce un caracter null
+	 * @return caracter: el o los caracteres capturados por el lector y son
+	 *         regresados para su futura utilización
 	 */
 	public static String caracteres(String texto) {
 		String caracter = " ";
@@ -49,11 +51,14 @@ public class basicos {
 	}
 
 	/**
-	 * El método menuCrud proporciona interacciones por consola
-	 * Muestra las gestiones que se pueden realizar y captura el valor numérico de la gestión 
+	 * El método menuCrud proporciona interacciones por consola Muestra las
+	 * gestiones que se pueden realizar y captura el valor numérico correspondiente
+	 * a la gestión
+	 * 
 	 * @author Quinteiro_Adhemar
-	 * @version 1, 15/02/2023
-	 * @exception InputMismatchException: cuando se introduce un caracter no numérico 
+	 * @version 1, 10/02/2023
+	 * @exception InputMismatchException: cuando se introduce un caracter no
+	 *                                    numérico
 	 */
 	public static int menuGestiones() {
 
@@ -75,18 +80,20 @@ public class basicos {
 	}
 
 	/**
-	 * El método menuBusqueda proporciona interacciones por las que se puede filtrar una vez selecionada la gestión
-	 * Muestra los filtros de búsqueda, captura el valor numérico de la gestión 
+	 * El método menuBusqueda proporciona interacciones por las que se puede filtrar
+	 * una vez selecionada la gestión Muestra los filtros de búsqueda, captura el
+	 * valor numérico de la gestión
+	 * 
 	 * @author Quinteiro_Adhemar
-	 * @version 1, 15/02/2023
-	 * @exception InputMismatchException: cuando se introduce un caracter no numérico 
+	 * @version 1, 10/02/2023
+	 * @exception InputMismatchException: cuando se introduce un caracter no
+	 *                                    numérico
 	 */
 	public static int menuBusqueda() {
 		int numeroArreglo = 0;
 		try {
 			do {
-				numeroArreglo = numericos(
-						"Por favor introduzca el numero de la caracteristica por la que quiere buscar: " + "\n"
+				numeroArreglo = numericos("Por favor introduzca el numero de la caracteristica por la que quiere buscar: " + "\n"
 								+ "1. nombre" + "\n" + "2. color" + "\n" + "3. region" + "\n" + "4. uva");
 			} while (numeroArreglo < 1 || numeroArreglo > 5);
 			return numeroArreglo;
@@ -96,22 +103,46 @@ public class basicos {
 		return numeroArreglo;
 	}
 
-
 	/**
-	 * El método buscador compara un input solicitado por consola por el método caracteres con los valores ya existentes 
-	 * en el arreglo, una vez conseguido ese valor lo muestra por pantalla junto con las demás características asociadas
-	 * al valor por el que se buscó. 
+	 * El método buscador compara un input solicitado por consola por el método
+	 * caracteres con los valores ya existentes en el arreglo, una vez conseguido
+	 * ese valor lo muestra por pantalla junto con las demás características
+	 * asociadas al valor por el que se buscó.
+	 * 
 	 * @author Quinteiro_Adhemar
-	 * @version 1, 15/02/2023
-	 * @param arregloComparo: es el primer arreglo, por el cual se ha escogido realizar la búsqueda, ya sea por nombre, color, región o uva.
-	 * @param arreglo1: es el primer arreglo que se introduce después del arreglo por el que se buscará.
-	 * @param arreglo2: es el segundo arreglo que se introduce.
-	 * @param arreglo3: es arreglo que se introduce como último. 
-	 * @param producto: es el valor que el usuario a seleccionado para buscar.
-	 * @param casoModificador:Es el filtro que se ha seleccionado para buscar, puede ser nombre, región o uva, dependiendo del escogido se 
-	 * 							muestra por pantalla un orden diferente.
-	 * @exception NullPointerException: cuando se necesitan introducir mayor cantidad de datos.
-	 * @return resultado: es el input del usuario, se usará para llevar un control en la bbdd para saber los más buscados y las cantidades de veces.
+	 * @version 1.2, 11/02/2023
+	 * @param arregloComparo:    es el primer arreglo, por el cual se ha escogido
+	 *                           realizar la búsqueda, ya sea por nombre, color,
+	 *                           región o uva.
+	 * @param arreglo1:          es el primer arreglo que se introduce después del
+	 *                           arreglo por el que se buscará.
+	 * @param arreglo2:          es el segundo arreglo que se introduce.
+	 * @param arreglo3:          es arreglo que se introduce como último.
+	 * @param producto:          es el valor que el usuario a seleccionado para
+	 *                           buscar.
+	 * @param casoModificador:Es el filtro que se ha seleccionado para buscar, puede
+	 *                           ser nombre, región o uva, dependiendo del escogido
+	 *                           se muestra por pantalla un orden diferente.
+	 * @exception NullPointerException: cuando se necesitan introducir mayor
+	 *                                  cantidad de datos.
+	 * @return resultado: es el input del usuario, se usará para llevar un control
+	 *         en la bbdd para saber los más buscados y las cantidades de veces.
+	 * @see https://eu.bbcollab.com/collab/ui/session/playback (Sesion 19 de
+	 *      introducción a la programación): Se explica la utilización del bucle do
+	 *      frente al for en este caso lo utilizo cuando el usuario quiere buscar
+	 *      por nombre, region o uva, como es muy poco probable que se repitan no
+	 *      tengo la necesidad de usar un bucle for, con el do-while lo que se hace
+	 *      es buscar hasta que se encuentra la primera igualdad, una vez
+	 *      conseguida, el valor de encontrado cambia a verdadero, esta variable se
+	 *      usa para interrumpir la secuencia de buscado y salir del bucle sin
+	 *      necesidad de que el contador llegue hasta la ultima posición del
+	 *      arreglo. porque los requisitos de funcionamiento del bucle son que el
+	 *      contador sea menor a la longitud del arreglo y que encontrado sigua
+	 *      siendo falso una vez se consiguen ambos casos se sale del bucle. En el
+	 *      caso de buscador implemento varias veces esta estructura por la
+	 *      necesidad de almacenar en el array corresppondiente la variable que se
+	 *      ingresa. Y poder mostrar las variables con el nombre de sus arrays de
+	 *      manera correcta.
 	 */
 	public static String buscador(String[] arregloComparo, String[] arreglo1, String[] arreglo2, String[] arreglo3,
 			String producto, int casoModificador) {
@@ -120,57 +151,87 @@ public class basicos {
 		int longitud = arregloComparo.length;
 		boolean encontrado = false;
 		try {
-		if (casoModificador == 1) {
-			do {
-				if (arregloComparo[contador].equals(producto)) {
-					encontrado = true;
-					System.out.println("nombre del vino: " + arregloComparo[contador] + " color: " + arreglo1[contador]
-							+ " region: " + arreglo2[contador] + " uva: " + arreglo3[contador]);
-					resultado = producto;
-				}
-				contador++;
-			} while (contador < longitud && !encontrado);
-		} else if (casoModificador == 3) {
-			do {
-				if (arregloComparo[contador].equals(producto)) {
-					encontrado = true;
-					System.out.println("nombre del vino: " + arreglo1[contador] + " color: " + arreglo2[contador]
-							+ " region: " + arregloComparo[contador] + " uva: " + arreglo3[contador]);
-					resultado = producto;
-				}
-				contador++;
-			} while (contador < longitud && !encontrado);
-		} else if (casoModificador == 4) {
-			do {
-				if (arregloComparo[contador].equals(producto)) {
-					encontrado = true;
-					System.out.println("nombre del vino: " + arreglo1[contador] + " color: " + arreglo2[contador]
-							+ " region: " + arreglo3[contador] + " uva: " + arregloComparo[contador]);
-					resultado = producto;
-				}
-				contador++;
-			} while (contador < longitud && !encontrado);
-		}
-		}catch(java.lang.NullPointerException e) {
+			if (casoModificador == 1) {
+				do {
+					if (arregloComparo[contador].equals(producto)) {
+						encontrado = true;
+						System.out.println("nombre del vino: " + arregloComparo[contador] + " color: " + arreglo1[contador]
+										+ " region: " + arreglo2[contador] + " uva: " + arreglo3[contador]);
+						resultado = producto;
+					}
+					contador++;
+				} while (contador < longitud && !encontrado);
+			} else if (casoModificador == 3) {
+				do {
+					if (arregloComparo[contador].equals(producto)) {
+						encontrado = true;
+						System.out.println("nombre del vino: " + arreglo1[contador] + " color: " + arreglo2[contador]
+								+ " region: " + arregloComparo[contador] + " uva: " + arreglo3[contador]);
+						resultado = producto;
+					}
+					contador++;
+				} while (contador < longitud && !encontrado);
+			} else if (casoModificador == 4) {
+				do {
+					if (arregloComparo[contador].equals(producto)) {
+						encontrado = true;
+						System.out.println("nombre del vino: " + arreglo1[contador] + " color: " + arreglo2[contador]
+								+ " region: " + arreglo3[contador] + " uva: " + arregloComparo[contador]);
+						resultado = producto;
+					}
+					contador++;
+				} while (contador < longitud && !encontrado);
+			}
+		} catch (java.lang.NullPointerException e) {
 			System.out.println("Introduzca mas valores primero por favor");
 		}
 		return resultado;
 	}
 
 	/**
-	 * El método modificador compara un input solicitado por consola por el método caracteres con los valores ya existentes 
-	 * en el arreglo, una vez conseguido ese valor lo muestra por pantalla junto con las demás características asociadas
-	 * al valor por el que se buscó y solicita los nuevos valores para modificar los anteriores 
+	 * El método modificador compara un input solicitado por consola por el método
+	 * caracteres con los valores ya existentes en el arreglo, una vez conseguido
+	 * ese valor lo muestra por pantalla junto con las demás características
+	 * asociadas al valor por el que se buscó y solicita los nuevos valores para
+	 * modificar los anteriores
+	 * 
 	 * @author Quinteiro_Adhemar
-	 * @version 1, 15/02/2023
-	 * @param arregloModificador: es el primer arreglo, por el cual se ha escogido realizar la búsqueda para su posterior modificación, la busqueda puede ser por nombre, color, región o uva.
-	 * @param arreglo1: es el primer arreglo que se introduce después del arreglo por el que se buscará.
-	 * @param arreglo2: es el segundo arreglo que se introduce.
-	 * @param arreglo3: es arreglo que se introduce como último. 
-	 * @param modificar: es el valor que el usuario a seleccionado para modificar junto con las características asociadas.
-	 * @param casoModificador:Es el filtro que se ha seleccionado para buscar, puede ser nombre, región o uva, dependiendo del escogido se 
-	 * 							muestra por pantalla un orden diferente.
-	 * @return resultado: es el input del usuario, se usará para llevar un control en la bbdd para saber cuales fueron los datos originales. 
+	 * @version 1.2, 11/02/2023
+	 * @param arregloModificador: es el primer arreglo, por el cual se ha escogido
+	 *                            realizar la búsqueda para su posterior
+	 *                            modificación, la busqueda puede ser por nombre,
+	 *                            color, región o uva.
+	 * @param arreglo1:           es el primer arreglo que se introduce después del
+	 *                            arreglo por el que se buscará.
+	 * @param arreglo2:           es el segundo arreglo que se introduce.
+	 * @param arreglo3:           es arreglo que se introduce como último.
+	 * @param modificar:          es el valor que el usuario a seleccionado para
+	 *                            modificar junto con las características asociadas.
+	 * @param casoModificador:Es  el filtro que se ha seleccionado para buscar,
+	 *                            puede ser nombre, región o uva, dependiendo del
+	 *                            escogido se muestra por pantalla un orden
+	 *                            diferente.
+	 * @return resultado: es el input del usuario, se usará para llevar un control
+	 *         posterior en la bbdd para saber cuales fueron los datos originales.
+	 * @see caracteres, buscador
+	 * @see https://eu.bbcollab.com/collab/ui/session/playback (Sesion 19 de
+	 *      introducción a la programación): Se explica la utilización del bucle do
+	 *      frente al for en este caso lo utilizo cuando el usuario quiere buscar
+	 *      por nombre, region o uva, como es muy poco probable que se repitan no
+	 *      tengo la necesidad de usar un bucle for, con el do-while lo que se hace
+	 *      es buscar hasta que se encuentra la primera igualdad, una vez
+	 *      conseguida, el valor de encontrado cambia a verdadero, esta variable se
+	 *      usa para interrumpir la secuencia de buscado y salir del bucle sin
+	 *      necesidad de que el contador llegue hasta la ultima posición del
+	 *      arreglo. porque los requisitos de funcionamiento del bucle son que el
+	 *      contador sea menor a la longitud del arreglo y que encontrado sigua
+	 *      siendo falso una vez se consiguen ambos casos se sale del bucle. En el
+	 *      caso de modificador, una vez encontrada la variable que se busca se le
+	 *      pide al usuario introducir la variable nueva junto con sus
+	 *      características asociadas, finalmente uso varias veces este tipo de
+	 *      estructura para poder mostrar por pantalla los resultados
+	 *      correspondientes con las diferentes posibilidades de búsqueda y en el
+	 *      orden correcto
 	 */
 	public static String modificador(String[] arregloModificar, String[] arreglo1, String[] arreglo2, String[] arreglo3,
 			String modificar, int casoModificador) {
@@ -212,8 +273,7 @@ public class basicos {
 					arreglo1[contador] = nuevoColor;
 					arreglo2[contador] = nuevoVino;
 					arreglo3[contador] = nuevaUva;
-					System.out.println(
-							"nueva region: " + arregloModificar[contador] + " color nuevo: " + arreglo1[contador]
+					System.out.println("nueva region: " + arregloModificar[contador] + " color nuevo: " + arreglo1[contador]
 									+ " nuevo vino: " + arreglo2[contador] + " uva nueva: " + arreglo3[contador]);
 					encontrado = true;
 					resultado = modificar;
@@ -227,8 +287,7 @@ public class basicos {
 					arreglo1[contador] = nuevoColor;
 					arreglo2[contador] = nuevaRegion;
 					arreglo3[contador] = nuevoVino;
-					System.out
-							.println("nueva Uva: " + arregloModificar[contador] + " color nuevo: " + arreglo1[contador]
+					System.out.println("nueva Uva: " + arregloModificar[contador] + " color nuevo: " + arreglo1[contador]
 									+ " region nueva: " + arreglo2[contador] + " nuevo Vino: " + arreglo3[contador]);
 					encontrado = true;
 					resultado = modificar;
@@ -238,27 +297,56 @@ public class basicos {
 		}
 		return resultado;
 	}
-
 	/**
-	 * El método eliminador buscar un input solicitado por consola con los valores ya existentes en el arreglo, una vez conseguido ese valor lo muestra por pantalla junto con las demás características asociadas
-	 * al valor por el que se buscó, solicita confirmar si ese valor es el que se quiere eliminar y, en caso afirmativo asigna un espacio
-	 * en blanco a todas las características asociadas. 
+	 * El método eliminador buscar un input solicitado por consola con los valores
+	 * ya existentes en el arreglo, una vez conseguido ese valor lo muestra por
+	 * pantalla junto con las demás características asociadas al valor por el que se
+	 * buscó, solicita confirmar si ese valor es el que se quiere eliminar y, en
+	 * caso afirmativo asigna un espacio en blanco a todas las características
+	 * asociadas.
+	 * 
 	 * @author Quinteiro_Adhemar
-	 * @version 1, 15/02/2023
-	 * @param arregloComparo: arreglo escogido para buscar, puede ser por nombre, color, región o uva, posteriormente se eliminarán los valores
-	 * @param arreglo1: es el primer arreglo que se introduce después del arreglo por el que se busca.
-	 * @param arreglo2: es el segundo arreglo que se introduce.
-	 * @param arreglo3: es arreglo que se introduce como último. 
-	 * @param producto: es el valor que el usuario a seleccionado para buscar.
-	 * @param casoModificador:Es el filtro que se ha seleccionado para buscar, puede ser nombre, región o uva, para estos 3 casos después de eliminar se notifica por pantalla
-	 * @return resultado: es el input del usuario, se usará para llevar un control en la bbdd para saber los valores eliminados.
+	 * @version 1.3, 13/02/2023
+	 * @param arregloComparo:    arreglo escogido para buscar, puede ser por nombre,
+	 *                           color, región o uva, posteriormente se eliminarán
+	 *                           los valores
+	 * @param arreglo1:          es el primer arreglo que se introduce después del
+	 *                           arreglo por el que se busca.
+	 * @param arreglo2:          es el segundo arreglo que se introduce.
+	 * @param arreglo3:          es arreglo que se introduce como último.
+	 * @param producto:          es el valor que el usuario a seleccionado para
+	 *                           buscar.
+	 * @param casoModificador:Es el filtro que se ha seleccionado para buscar, puede
+	 *                           ser nombre, región o uva, para estos 3 casos
+	 *                           después de eliminar se notifica por pantalla
+	 * @return posicion: es la posicion que se ha eliminado, se usa para poder
+	 *         añadir valores posteriormente en esa posicion.
+	 * @see buscador, caracteres.
+	 * @see https://eu.bbcollab.com/collab/ui/session/playback (Sesion 19 de
+	 *      introducción a la programación): Se explica la utilización del bucle do
+	 *      frente al for en este caso lo utilizo cuando el usuario quiere buscar
+	 *      por nombre, region o uva, como es muy poco probable que se repitan no
+	 *      tengo la necesidad de usar un bucle for, con el do-while lo que se hace
+	 *      es buscar hasta que se encuentra la primera igualdad, una vez
+	 *      conseguida, el valor de encontrado cambia a verdadero, esta variable se
+	 *      usa para interrumpir la secuencia de buscado y salir del bucle sin
+	 *      necesidad de que el contador llegue hasta la ultima posición del
+	 *      arreglo. porque los requisitos de funcionamiento del bucle son que el
+	 *      contador sea menor a la longitud del arreglo y que encontrado sigua
+	 *      siendo falso una vez se consiguen ambos casos se sale del bucle. En el
+	 *      caso del método eliminador,buscamos la variable en el arreglo, una vez
+	 *      encontrada se le pide al usuario confirmación de si es la que se quiere
+	 *      eliminar, en caso de positivo se introduce un espacio en blanco en la
+	 *      posición correspondiente y en los valores relacionados en los otros
+	 *      arrays En este caso como solo se muestra un resultado por consola puedo
+	 *      juntar todos los casos modificadores posibles en uno solo.
 	 */
-	public static String eliminador(String[] arregloEliminar, String[] arreglo1, String[] arreglo2, String[] arreglo3,
+	public static int eliminador(String[] arregloEliminar, String[] arreglo1, String[] arreglo2, String[] arreglo3,
 			String eliminar, int casoModificador) {
 		String buscarValor;
 		String confirmacion;
-		String resultado = " ";
 		int contador = 0;
+		int posicion = 0;
 		int longitud = arregloEliminar.length;
 		boolean encontrado = false;
 		buscarValor = buscador(arregloEliminar, arreglo1, arreglo2, arreglo3, eliminar, casoModificador);
@@ -273,12 +361,12 @@ public class basicos {
 						arreglo3[contador] = " ";
 						System.out.println("se ha eliminado de manera correcta");
 						encontrado = true;
-						resultado = eliminar;
+						posicion = contador;
 					}
 					contador++;
 				} while (contador < longitud && !encontrado);
 			}
 		}
-		return resultado;
+		return posicion;
 	}
 }
