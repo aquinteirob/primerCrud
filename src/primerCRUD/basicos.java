@@ -161,9 +161,6 @@ public class basicos {
 					}
 					contador++;
 				} while (contador < longitud && !encontrado);
-				if(contador==longitud) {
-					System.out.println("Valor no encontrado");
-				}
 			} else if (casoModificador == 3) {
 				do {
 					if (arregloComparo[contador].equals(producto)) {
@@ -174,9 +171,6 @@ public class basicos {
 					}
 					contador++;
 				} while (contador < longitud && !encontrado);
-				if(contador==longitud) {
-					System.out.println("Valor no encontrado");
-				}
 			} else if (casoModificador == 4) {
 				do {
 					if (arregloComparo[contador].equals(producto)) {
@@ -187,9 +181,6 @@ public class basicos {
 					}
 					contador++;
 				} while (contador < longitud && !encontrado);
-				if(contador==longitud) {
-					System.out.println("Valor no encontrado");
-				}
 			}
 		} catch (java.lang.NullPointerException e) {
 			System.out.println("Introduzca mas valores primero por favor");
