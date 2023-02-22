@@ -10,10 +10,10 @@ public class crud {
 	}
 
 	private static void menuCrud() {
-		String[] nombre = new String[20];
-		String[] color = new String[20];
-		String[] region = new String[20];
-		String[] uva = new String[20];
+		String[] nombre = new String[3];
+		String[] color = new String[3];
+		String[] region = new String[3];
+		String[] uva = new String[3];
 		String nuevoVino;
 		String nuevoColor;
 		String nuevaRegion;
